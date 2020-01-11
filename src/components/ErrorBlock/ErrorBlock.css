@@ -1,0 +1,8 @@
+.error-block{
+  width: 100%;
+  font-size: 32px;
+  color: #ad2c27;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
