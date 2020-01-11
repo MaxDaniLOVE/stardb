@@ -7,13 +7,24 @@ import PersonDetails from '../PersonDetails'
 import './App.css'
 
 export default class App extends Component{
+  state = {
+    selectedPerson: null
+  }
+
+  onPersonSelect = (id) => {
+    this.setState({
+      selectedPerson: id
+    })
+  }
+
   render() {
+    const {selectedPerson} = this.state;
     return (
       <div className="wrapper">
         <Header />
         <RandomPlanet />
-        <ItemList />
-        <PersonDetails />
+        <ItemList onPersonSelect={this.onPersonSelect} selectedPerson={selectedPerson}/>
+        <PersonDetails selectedPerson={selectedPerson}/>
       </div>
     )
   }
