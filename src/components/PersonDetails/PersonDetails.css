@@ -1,0 +1,19 @@
+.person-details_image{
+  height: 230px;
+  width: 180px;
+  border-radius: 3%;
+  margin-left: 2%;
+}
+
+.person-details{
+  display: flex;
+  height: 250px;
+  width: 85vw;
+  background-color: #303030;
+  border-radius: 25px;
+  margin-top: 3%;
+  align-items: center;
+}
+.person-details_info{
+  margin-left: 3%;
+}

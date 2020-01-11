@@ -1,0 +1,13 @@
+.item-list{
+  width: 85vw;
+  background-color: #272727;
+  margin-top: 3%;
+}
+.item-list_item{
+  background-color: #303030;
+  transition: background-color .5s ease;
+}
+.item-list_item:hover{
+  transition: background-color .5s ease;
+  background-color: #575757;
+}
