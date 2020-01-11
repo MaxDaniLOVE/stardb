@@ -14,7 +14,11 @@
     opacity: 0;
   }
 }
-
+.spinner-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .ldio-ldzm0nrhhl div {
   position: absolute;
   border-width: 4px;
