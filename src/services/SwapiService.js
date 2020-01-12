@@ -83,7 +83,5 @@ export default class SwapiService {
   }
 }
 
-// const asdasd = new SwapiService();
-// asdasd.getAllPeople().then((res) => (
-//   res.map((e) => console.log(e.name))
-// ));
+const asdasd = new SwapiService();
+asdasd.getPerson(1).then((res) => (console.log(res)));

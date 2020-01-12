@@ -11,3 +11,6 @@
   transition: background-color .5s ease;
   background-color: #575757;
 }
+.active-item{
+  background-color: #575757;
+}

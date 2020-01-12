@@ -8,7 +8,7 @@ export default class ItemList extends Component{
   state = {
     peopleList: null,
   }
-  componentWillMount() {
+  componentDidMount() {
     this.swapiService.getAllPeople().then((peopleList) => {
       this.setState({
         peopleList,
@@ -23,7 +23,7 @@ export default class ItemList extends Component{
       return <Spinner />
     }  
     const allPeople = peopleList.map(({id, name})=> {
-      const newClassName = id === selectedPerson ? "list-group-item item-list_item active" : "list-group-item item-list_item"
+      const newClassName = id === selectedPerson ? "list-group-item item-list_item active-item" : "list-group-item item-list_item"
       return (
       <li
         className={newClassName}
