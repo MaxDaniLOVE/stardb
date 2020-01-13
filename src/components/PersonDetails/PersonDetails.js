@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import SwapiService from '../../services/SwapiService';
 import Spinner from '../Spinner';
+import ErrorButton from '../ErrorButton'
 import './PersonDetails.css'
 
 export default class PersonDetails extends Component{
   state = {
     person: null,
-    isLoaded: false
+    isLoaded: false,
   }
   swapiService = new SwapiService();
 
@@ -42,7 +43,11 @@ export default class PersonDetails extends Component{
   render() {
     const {person, isLoaded} = this.state;
     if (!isLoaded) {
-      return <Spinner />
+      return (
+        <div className="person-details">
+          <Spinner />
+        </div>
+      )
     }
     if (!person) {
       return <span>Select person fom a list</span>;
@@ -69,6 +74,7 @@ export default class PersonDetails extends Component{
             <span>Height: </span> 
             <span>{height}</span>
           </p>
+          <ErrorButton />
         </div>
       </div>
     )

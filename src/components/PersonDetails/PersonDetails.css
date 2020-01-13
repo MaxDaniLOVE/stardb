@@ -8,7 +8,7 @@
 .person-details{
   display: flex;
   height: 250px;
-  width: 85vw;
+  width: 40%;
   background-color: #303030;
   border-radius: 25px;
   margin-top: 3%;
