@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ItemList from '../ItemList'
-import PersonDetails from '../PersonDetails'
+import ItemDetails from '../ItemDetails'
 import SwapiService from '../../services/SwapiService';
 import RowBlock from '../RowBlock'
 import ErrorBoundry from '../ErrorBoundry'
@@ -10,27 +10,27 @@ import './PersonWrapper.css'
 
 export default class PersonWrapper extends Component{
   state = {
-    selectedPerson: 4,
+    selectedItem: 4,
   }
 
   swapiService = new SwapiService();
 
   onPersonSelect = (id) => {
     this.setState({
-      selectedPerson: id
+      selectedItem: id
     })
   }
 
   render() {
-    const {selectedPerson} = this.state;
+    const {selectedItem} = this.state;
     const itemList = (<ItemList
       onPersonSelect={this.onPersonSelect}
-      selectedPerson={selectedPerson}
+      selectedItem={selectedItem}
       getData={this.swapiService.getAllPeople}
       renderItem={(item) =>{ return `${item.name} (height: ${item.height})`}}
     />)
     const personDetails = (
-      <PersonDetails selectedPerson={selectedPerson}/>
+      <ItemDetails selectedPerson={selectedItem}/>
     )
     return(
       <ErrorBoundry>
