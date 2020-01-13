@@ -3,9 +3,9 @@ import ItemList from '../ItemList'
 import ErrorBlock from '../ErrorBlock'
 import PersonDetails from '../PersonDetails'
 import SwapiService from '../../services/SwapiService';
+import RowBlock from '../RowBlock'
 
 import './PersonWrapper.css'
-
 
 export default class PersonWrapper extends Component{
   state = {
@@ -27,20 +27,22 @@ export default class PersonWrapper extends Component{
 
   render() {
     const {selectedPerson} = this.state;
+    const itemList = (<ItemList
+      onPersonSelect={this.onPersonSelect}
+      selectedPerson={selectedPerson}
+      getData={this.swapiService.getAllPeople}
+      renderItem={(item) =>{ return `${item.name} (height: ${item.height})`}}
+    />)
+    const personDetails = (
+      <PersonDetails selectedPerson={selectedPerson}/>
+    )
     if (this.state.hasError) {
       return <ErrorBlock />
     }
     return(
       <div className="person-wrapper">
-        <ItemList
-          onPersonSelect={this.onPersonSelect}
-          selectedPerson={selectedPerson}
-          getData={this.swapiService.getAllPeople}
-          renderItem={(item) =>{ return `${item.name} (height: ${item.height})`}}
-        />
-        <PersonDetails selectedPerson={selectedPerson}/>
+        <RowBlock leftblock={itemList} rightBlock={personDetails}/>
       </div>
     )
-    
   }
 }
