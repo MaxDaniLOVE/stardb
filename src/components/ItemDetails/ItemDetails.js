@@ -4,10 +4,12 @@ import Spinner from '../Spinner';
 import ErrorButton from '../ErrorButton'
 import './ItemDetails.css'
 
+
 export default class ItemDetails extends Component{
   state = {
     item: null,
     isLoaded: false,
+    image: null
   }
   swapiService = new SwapiService();
 
@@ -16,7 +18,7 @@ export default class ItemDetails extends Component{
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.selectedPerson !== this.props.selectedPerson) {
+    if (prevProps.selectedItem !== this.props.selectedItem) {
       this.setState({
         isLoaded: false,
       });
@@ -25,23 +27,23 @@ export default class ItemDetails extends Component{
   }
 
   updatePerson() {
-    const { selectedPerson} = this.props;
-    if (!selectedPerson) {
+    const { selectedItem, getData, getImageURL} = this.props;
+    if (!selectedItem) {
       return;
     }
-    this.swapiService
-      .getPerson(selectedPerson)
+    getData(selectedItem)
       .then((item) => {
         this.setState({
           item,
           isLoaded: true,
+          image: getImageURL(selectedItem)
         });
       });
 
   }
 
   render() {
-    const {item, isLoaded} = this.state;
+    const {item, isLoaded, image} = this.state;
     if (!isLoaded) {
       return (
         <div className="person-details">
@@ -57,26 +59,20 @@ export default class ItemDetails extends Component{
       <div className="person-details">
         <img
           className="person-details_image"
-          src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+          src={image}
           alt="person-details"
         />
         <div className="person-details_info">
           <h3>{name}</h3> 
-          <p>
-            <span>Gender: </span> 
-            <span>{gender}</span>
-          </p>
-          <p>
-            <span>Birth year: </span> 
-            <span>{birthYear}</span>
-          </p>
-          <p>
-            <span>Height: </span> 
-            <span>{height}</span>
-          </p>
+            {
+              React.Children.map(this.props.children, (child) => {
+                return React.cloneElement(child, {item})
+              })
+            }
           <ErrorButton />
         </div>
       </div>
     )
   }
 }
+
