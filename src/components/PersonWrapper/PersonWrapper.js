@@ -1,17 +1,22 @@
 import React, { Component } from "react";
-import ItemList from '../ItemList'
-import ItemDetails from '../ItemDetails'
 import SwapiService from '../../services/SwapiService';
 import RowBlock from '../RowBlock'
 import ErrorBoundry from '../ErrorBoundry'
-import Record from '../Record/Record'
+import {
+  PersonList,
+  PlanetList,
+  StarshipsList,
+  PersonDetails,
+  PlanetDetails,
+  StarshipsDetails
+} from '../SWlists'
 
 import './PersonWrapper.css'
 
 
 export default class PersonWrapper extends Component{
   state = {
-    selectedItem: 14,
+    selectedItem: 20,
   }
 
   swapiService = new SwapiService();
@@ -24,26 +29,28 @@ export default class PersonWrapper extends Component{
 
   render() {
     const {selectedItem} = this.state;
-    const itemList = (<ItemList
-      onPersonSelect={this.onPersonSelect}
-      selectedItem={selectedItem}
-      getData={this.swapiService.getAllPeople}
+    const itemList = (<PersonList
       renderItem={(item) =>{ return `${item.name} (height: ${item.height})`}}
     />)
-    const personDetails = (
-      <ItemDetails
-      selectedItem={selectedItem}
-      getData={this.swapiService.getPerson}
-      getImageURL={this.swapiService.getPersonImage}>
-        <Record field={'gender'} label={'Gender: '}/>
-        <Record field={'hairColor'} label={'Hair color: '}/>
-        <Record field={'birthYear'} label={'Year of birth: '}/>
-      </ItemDetails>
-    )
+    const starshipList = (<StarshipsList
+      renderItem={(item) =>{ return `${item.name} (manufacturer: ${item.manufacturer})`}}
+    />)
+    const planetList = (<PlanetList
+      renderItem={(item) =>{ return `${item.name} (diameter: ${item.diameter})`}}
+    />)
+    const personDetails = <PersonDetails selectedItem={selectedItem}/>
+    const planetDetails = <PlanetDetails selectedItem={3}/>
+    const starshipsDetails = <StarshipsDetails selectedItem={5}/>
     return(
       <ErrorBoundry>
         <div className="person-wrapper">
           <RowBlock leftblock={itemList} rightBlock={personDetails}/>
+        </div>
+        <div className="person-wrapper">
+          <RowBlock leftblock={starshipList} rightBlock={starshipsDetails}/>
+        </div>
+        <div className="person-wrapper">
+          <RowBlock leftblock={planetList} rightBlock={planetDetails}/>
         </div>
       </ErrorBoundry>
     )

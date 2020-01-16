@@ -54,7 +54,7 @@ export default class ItemDetails extends Component{
     if (!item) {
       return <span>Select person fom a list</span>;
     }
-    const {name, gender, birthYear, height, id} = item;
+    const {name} = item;
     return (
       <div className="person-details">
         <img

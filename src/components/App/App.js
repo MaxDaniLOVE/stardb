@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Header'
 import RandomPlanet from '../RandomPlanet'
 import PersonWrapper from '../PersonWrapper'
-import ItemList from '../ItemList'
-import ItemDetails from '../ItemDetails'
-import Record from '../Record/Record'
 import SwapiService from '../../services/SwapiService';
-import RowBlock from '../RowBlock';
 
 import './App.css'
 

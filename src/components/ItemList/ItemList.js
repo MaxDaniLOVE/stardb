@@ -1,8 +1,6 @@
 import React from 'react';
 
 import './ItemList.css'
-import SwapiService from '../../services/SwapiService';
-import HocHelper from '../HocHelper'
 
 const ItemList = (props) => {
   const {onPersonSelect, selectedPerson, data} = props;
@@ -29,6 +27,4 @@ const ItemList = (props) => {
 
 }
 
-const {getAllPeople} = new SwapiService();
-
-export default HocHelper(ItemList, getAllPeople)
+export default ItemList
