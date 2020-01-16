@@ -11,7 +11,7 @@ import './PersonWrapper.css'
 
 export default class PersonWrapper extends Component{
   state = {
-    selectedItem: 4,
+    selectedItem: 14,
   }
 
   swapiService = new SwapiService();
