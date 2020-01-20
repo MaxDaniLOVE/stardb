@@ -29,22 +29,16 @@ export default class PersonWrapper extends Component{
 
   render() {
     const {selectedItem} = this.state;
-    const itemList = (<PersonList
-      renderItem={(item) =>{ return `${item.name} (height: ${item.height})`}}
-    />)
-    const starshipList = (<StarshipsList
-      renderItem={(item) =>{ return `${item.name} (manufacturer: ${item.manufacturer})`}}
-    />)
-    const planetList = (<PlanetList
-      renderItem={(item) =>{ return `${item.name} (diameter: ${item.diameter})`}}
-    />)
+    const personList = <PersonList />
+    const starshipList = <StarshipsList />
+    const planetList = <PlanetList />
     const personDetails = <PersonDetails selectedItem={selectedItem}/>
     const planetDetails = <PlanetDetails selectedItem={3}/>
     const starshipsDetails = <StarshipsDetails selectedItem={5}/>
     return(
       <ErrorBoundry>
         <div className="person-wrapper">
-          <RowBlock leftblock={itemList} rightBlock={personDetails}/>
+          <RowBlock leftblock={personList} rightBlock={personDetails}/>
         </div>
         <div className="person-wrapper">
           <RowBlock leftblock={starshipList} rightBlock={starshipsDetails}/>

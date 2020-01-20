@@ -6,8 +6,7 @@ const ItemList = (props) => {
   const {onPersonSelect, selectedPerson, data} = props;
   
   const allPeople = data.map((item)=> {
-    const { id } = item;
-    const label = props.renderItem(item)
+    const { id, name } = item;
     const newClassName = id === selectedPerson ? "list-group-item item-list_item active-item" : "list-group-item item-list_item"
     return (
     <li
@@ -15,7 +14,7 @@ const ItemList = (props) => {
       key={id}
       onClick={() => onPersonSelect(id)}
       >
-      {label}
+      {name}
     </li>
     )
   });

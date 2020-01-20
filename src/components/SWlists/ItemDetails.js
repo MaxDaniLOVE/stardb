@@ -33,8 +33,8 @@ const PlanetDetails = ({selectedItem}) => {
     getData={getPlanets}
     getImageURL={getPlanetImage}>
       <Record field={'diameter'} label={'Diametr: '}/>
-      {/* <Record field={'hairColor'} label={'Hair color: '}/>
-      <Record field={'birthYear'} label={'Year of birth: '}/> */}
+      <Record field={'population'} label={'Population: '}/>
+      <Record field={'rotationPeriod'} label={'Rotation period: '}/>
     </ItemDetails>
   )
 }
@@ -45,8 +45,8 @@ const StarshipsDetails = ({selectedItem}) => {
     getData={getStarship}
     getImageURL={getStarshipImage}>
       <Record field={'manufacturer'} label={'Manufacturer: '}/>
-      {/* <Record field={'hairColor'} label={'Hair color: '}/>
-      <Record field={'birthYear'} label={'Year of birth: '}/> */}
+      <Record field={'starshipClass'} label={'Starship class: '}/>
+      <Record field={'maxAtmospheringSpeed'} label={'Max atmosphering speed: '}/>
     </ItemDetails>
   )
 }
