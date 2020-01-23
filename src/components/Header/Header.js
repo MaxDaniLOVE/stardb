@@ -13,16 +13,13 @@ export default class Header extends Component {
         <div className="collapse navbar-collapse" id="navbarColor02">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="https://vk.com/">Home <span className="sr-only">(current)</span></a>
+              <a className="nav-link" href="https://vk.com/">Person <span className="sr-only">(current)</span></a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="https://vk.com/">Features</a>
+              <a className="nav-link" href="https://vk.com/">Starship</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="https://vk.com/">Pricing</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="https://vk.com/">About</a>
+              <a className="nav-link" href="https://vk.com/">Planet</a>
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
