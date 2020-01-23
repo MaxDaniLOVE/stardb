@@ -3,6 +3,7 @@ import SwapiService from '../../services/SwapiService';
 import Spinner from '../Spinner'
 import ErrorBlock from '../ErrorBlock'
 import './RandomPlanet.css'
+import PropTypes from 'prop-types'
 
 export default class RandomPlanet extends Component{
   constructor() {
@@ -92,4 +93,8 @@ const PlanetView = ({planet})  => {
         </div>
     </React.Fragment>
   )
+}
+
+PlanetView.propTypes ={
+  planet: PropTypes.object,
 }
