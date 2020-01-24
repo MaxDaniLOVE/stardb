@@ -1,29 +1,19 @@
-import React, { Component } from 'react';
-import RowBlock from '../RowBlock'
+import React from 'react';
+import { withRouter } from 'react-router-dom'
 import {
-  PersonList,
-  PersonDetails,
+  PersonList
 } from '../SWlists'
 
-export default class PersonPage extends Component {
-  state = {
-    selectedItem: 1
-  }
-
-  onItemSelected = (selectedItem) => {
-    this.setState({
-      selectedItem,
-    })
-  }
-
-  render() {
-    const personList = (<PersonList
+const PersonPage = ({history}) => {
+  return(
+    <PersonList
       renderItem={(item) =>{ return `${item.name} (height: ${item.height})`}}
-      onItemSelected={this.onItemSelected}
-    />)
-    const personDetails = <PersonDetails selectedItem={this.state.selectedItem}/>
-    return(
-      <RowBlock leftblock={personList} rightBlock={personDetails}/>
-    )
-  }
+      onItemSelected={(itemId) => {
+        const newPath = `/people/${itemId}`
+        history.push(newPath)
+      }}
+    />
+  )
 }
+
+export default withRouter(PersonPage);

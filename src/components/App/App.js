@@ -8,6 +8,9 @@ import StarshipPage from '../Pages/StarshipPage'
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 
 import './App.css'
+import { PersonDetails,
+  PlanetDetails,
+  StarshipsDetails } from '../SWlists';
 
 
 
@@ -23,9 +26,31 @@ export default class App extends Component{
           <Router>
             <Header />
             <RandomPlanet />
-            <Route path="/people" component={PersonPage}/>
-            <Route path="/planets" component={PlanetPage}/>
-            <Route path="/starships" component={StarshipPage}/>
+            <Route path="/" component={() => <h2>Welcome to StarDB</h2>} exact={true}/>
+            <Route path="/people/" component={PersonPage} exact/>
+            <Route path="/planets/" component={PlanetPage} exact/>
+            <Route path="/starships/" component={StarshipPage} exact/>
+            <Route
+              path="/starships/:id"
+              component={({match}) => {
+                const { id } = match.params;
+                return <StarshipsDetails selectedItem={id}/>
+              }}
+            />
+            <Route
+              path="/planets/:id"
+              component={({match}) => {
+                const { id } = match.params;
+                return <PlanetDetails selectedItem={id}/>
+              }}
+            />
+            <Route
+              path="/people/:id"
+              component={({match}) => {
+                const { id } = match.params;
+                return <PersonDetails selectedItem={id}/>
+              }}
+            />
           </Router>
         </div>
     )
