@@ -1,48 +1,84 @@
 import React, { Component } from 'react';
 import Header from '../Header'
 import RandomPlanet from '../RandomPlanet'
-import PersonWrapper from '../PersonWrapper'
 import SwapiService from '../../services/SwapiService';
+import PersonPage from '../Pages/PersonPage'
+import PlanetPage from '../Pages/PlanetPage'
+import StarshipPage from '../Pages/StarshipPage'
+import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import LoginPage from '../Pages/LoginPage';
+import SecretPage from '../Pages/SecretPage';
 
 import './App.css'
+import { PersonDetails,
+  PlanetDetails,
+  StarshipsDetails } from '../SWlists';
 
 
 
 export default class App extends Component{ 
   state = {
-    selectedPerson: null,
+    selectedPerson: 11,
+    isLoggedIn: false
+  }
+
+  onLog = () => {
+    this.setState({
+      isLoggedIn: true
+    })
   }
 
   swapiService = new SwapiService();
   render() {
-    // const {selectedPerson} = this.state
-    // const personDetails = (
-    //   <ItemDetails
-    //   selectedItem={11}
-    //   getData={this.swapiService.getPerson}
-    //   getImageURL={this.swapiService.getPersonImage}>
-    //     <Record field={'gender'} label={'Gender: '}/>
-    //     <Record field={'hairColor'} label={'Hair color: '}/>
-    //     <Record field={'birthYear'} label={'Year of birth: '}/>
-    //   </ItemDetails>
-    // )
-    // const starshipDetails = (
-    //   <ItemDetails
-    //     selectedItem={11}
-    //     getData={this.swapiService.getStarship}
-    //     getImageURL={this.swapiService.getStarshipImage}
-    //     >
-    //     <Record field={'starshipClass'} label={'Starship class: '}/>
-    //     <Record field={'maxAtmospheringSpeed'} label={'Maximum speed: '}/>
-    //     <Record field={'manufacturer'} label={'Manufacturer: '}/>
-    //   </ItemDetails>
-    // )
     return (
-      <div className="wrapper">
-        <Header />
-        <RandomPlanet />
-        <PersonWrapper />
-      </div>
+        <div className="wrapper">
+          <Router>
+            <Header />
+            <RandomPlanet />
+            <Switch>
+              <Route path="/" component={() => <h2>Welcome to StarDB</h2>} exact={true}/>
+              <Route path="/people/" component={PersonPage} exact/>
+              <Route path="/planets/" component={PlanetPage} exact/>
+              <Route path="/starships/" component={StarshipPage} exact/>
+              <Route
+                path="/secretpage/"
+                component={() => {
+                  return <SecretPage isLoggedIn={this.state.isLoggedIn}/>
+                }} 
+                exact/>
+              <Route
+                path="/login/"
+                component={() => {
+                  return <LoginPage isLoggedIn={this.state.isLoggedIn} onLog={this.onLog}/>
+                }} 
+                exact/>
+              <Route
+                path="/starships/:id"
+                component={({match}) => {
+                  const { id } = match.params;
+                  return <StarshipsDetails selectedItem={id}/>
+                }}
+              />
+              <Route
+                path="/planets/:id"
+                component={({match}) => {
+                  const { id } = match.params;
+                  return <PlanetDetails selectedItem={id}/>
+                }}
+              />
+              <Route
+                path="/people/:id"
+                component={({match}) => {
+                  const { id } = match.params;
+                  return <PersonDetails selectedItem={id}/>
+                }}
+              />
+              <Route component={() => {
+                return <h2>Page not found!</h2>
+              }} />
+            </Switch>
+          </Router>
+        </div>
     )
   }
 }

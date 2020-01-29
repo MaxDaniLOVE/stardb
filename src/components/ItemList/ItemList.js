@@ -3,7 +3,7 @@ import React from 'react';
 import './ItemList.css'
 
 const ItemList = (props) => {
-  const {onPersonSelect, selectedPerson, data} = props;
+  const {onItemSelected, selectedPerson, data} = props;
   
   const allPeople = data.map((item)=> {
     const { id, name } = item;
@@ -12,7 +12,7 @@ const ItemList = (props) => {
     <li
       className={newClassName}
       key={id}
-      onClick={() => onPersonSelect(id)}
+      onClick={() => onItemSelected(id)}
       >
       {name}
     </li>
