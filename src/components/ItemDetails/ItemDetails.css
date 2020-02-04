@@ -1,6 +1,4 @@
 .person-details_image{
-  height: 230px;
-  width: 180px;
   border-radius: 5px;
   margin-left: 2%;
 }
@@ -8,7 +6,8 @@
 .person-details{
   display: flex;
   height: 300px;
-  width: 40%;
+  width: 50vw;
+  padding: 20px;
   background-color: #303030;
   border-radius: 5px;
   margin-top: 3%;
@@ -16,5 +15,5 @@
 }
 
 .person-details_info{
-  margin-left: 3%;
+  margin-left: 25px;
 }

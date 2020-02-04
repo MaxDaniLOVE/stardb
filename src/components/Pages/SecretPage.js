@@ -3,7 +3,7 @@ import {Redirect} from 'react-router-dom'
 
 const SecretPage = ({isLoggedIn}) => {
   if (isLoggedIn) {
-    return <span>ur adopted!</span>
+    return <span style={{marginTop: '15px'}}>You've opened secret page!</span>
   } else {
     return <Redirect to="/login/"/>
   }

@@ -19,7 +19,8 @@ const PersonDetails = ({selectedItem}) => {
     <ItemDetails
     selectedItem={selectedItem}
     getData={getPerson}
-    getImageURL={getPersonImage}>
+    getImageURL={getPersonImage}
+    type={'people'}>
       <Record field={'gender'} label={'Gender: '}/>
       <Record field={'hairColor'} label={'Hair color: '}/>
       <Record field={'birthYear'} label={'Year of birth: '}/>
@@ -31,7 +32,8 @@ const PlanetDetails = ({selectedItem}) => {
     <ItemDetails
     selectedItem={selectedItem}
     getData={getPlanets}
-    getImageURL={getPlanetImage}>
+    getImageURL={getPlanetImage}
+    type={'planet'}>
       <Record field={'diameter'} label={'Diametr: '}/>
       <Record field={'population'} label={'Population: '}/>
       <Record field={'rotationPeriod'} label={'Rotation period: '}/>
@@ -43,7 +45,8 @@ const StarshipsDetails = ({selectedItem}) => {
     <ItemDetails
     selectedItem={selectedItem}
     getData={getStarship}
-    getImageURL={getStarshipImage}>
+    getImageURL={getStarshipImage}
+    type={'starship'}>
       <Record field={'manufacturer'} label={'Manufacturer: '}/>
       <Record field={'starshipClass'} label={'Starship class: '}/>
       <Record field={'maxAtmospheringSpeed'} label={'Max atmosphering speed: '}/>

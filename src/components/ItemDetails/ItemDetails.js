@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import SwapiService from '../../services/SwapiService';
 import Spinner from '../Spinner';
-import ErrorButton from '../ErrorButton'
-import ErrorBoundry from '../ErrorBoundry'
-import './ItemDetails.css'
+import ErrorButton from '../ErrorButton';
+import ErrorBoundry from '../ErrorBoundry';
+import setStyleForImage from '../../utils/setStyleForImage';
+import './ItemDetails.css';
 
 
 export default class ItemDetails extends Component{
@@ -45,6 +46,7 @@ export default class ItemDetails extends Component{
 
   render() {
     const {item, isLoaded, image} = this.state;
+    const style = setStyleForImage(this.props.type)
     if (!isLoaded) {
       return (
         <div className="person-details">
@@ -63,6 +65,7 @@ export default class ItemDetails extends Component{
             className="person-details_image"
             src={image}
             alt="person-details"
+            style={style}
           />
           <div className="person-details_info">
             <h3>{name}</h3> 
@@ -75,8 +78,6 @@ export default class ItemDetails extends Component{
           </div>
         </div>
       </ErrorBoundry>
-      
     )
   }
 }
-

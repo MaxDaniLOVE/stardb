@@ -6,11 +6,12 @@ const LoginPage = ({isLoggedIn, onLog}) => {
     return <Redirect to="/secretpage/"/>
   }
   return(
-    <div className="jumbotron">
+    <div className="jumbotron" style={{padding: '15px', marginTop: '15px'}}>
       <span>Please login</span>  
       <button
       className="btn btn-success"
-      onClick={onLog}>LogIn</button>
+      onClick={onLog}
+      style={{marginLeft: '15px'}}>LogIn</button>
     </div>
   )
 }
