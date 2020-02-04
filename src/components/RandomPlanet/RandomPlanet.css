@@ -3,7 +3,7 @@
   height: 200px;
   width: 85vw;
   background-color: #303030;
-  border-radius: 25px;
+  border-radius: 5px;
   margin-top: 3%;
   align-items: center;
 }
@@ -13,7 +13,7 @@
 .random-planet_image{
   height: 180px;
   width: 180px;
-  border-radius: 3%;
+  border-radius: 5px;
   margin-left: 2%;
 }
 .random-planet_planet{

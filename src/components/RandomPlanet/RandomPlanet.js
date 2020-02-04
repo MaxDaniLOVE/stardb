@@ -36,7 +36,7 @@ export default class RandomPlanet extends Component{
       loading: false,
       error: true,
     })
-    console.log(error, 'asdasdasd');
+    console.log(error);
     return 
   }
 

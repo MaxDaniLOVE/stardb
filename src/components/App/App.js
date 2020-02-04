@@ -33,7 +33,7 @@ export default class App extends Component{
             <Header />
             <RandomPlanet />
             <Switch>
-              <Route path="/" component={() => <h2>Welcome to StarDB</h2>} exact={true}/>
+              <Route path="/" component={() => <h2 className="greating">Welcome to StarDB!</h2>} exact={true}/>
               <Route path="/people/" component={PersonPage} exact/>
               <Route path="/planets/" component={PlanetPage} exact/>
               <Route path="/starships/" component={StarshipPage} exact/>

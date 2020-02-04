@@ -1,7 +1,7 @@
 .person-details_image{
   height: 230px;
   width: 180px;
-  border-radius: 3%;
+  border-radius: 5px;
   margin-left: 2%;
 }
 
@@ -10,10 +10,11 @@
   height: 300px;
   width: 40%;
   background-color: #303030;
-  border-radius: 25px;
+  border-radius: 5px;
   margin-top: 3%;
   align-items: center;
 }
+
 .person-details_info{
   margin-left: 3%;
 }
