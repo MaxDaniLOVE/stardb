@@ -9,6 +9,7 @@
 .error-block_image{
   height: 80px;
   width: 80px;
+  margin-top: 15px;
 }
 .error-block p {
   margin: 0;

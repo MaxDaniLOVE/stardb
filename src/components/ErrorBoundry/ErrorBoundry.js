@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import ErrorBlock from '../ErrorBlock'
 
-import './ErrorBoundry.css'
-
 export default class ErrorBoundry extends Component {
   state = {
     hasError: false,

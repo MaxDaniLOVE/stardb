@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SwapiService from '../../services/SwapiService';
 import Spinner from '../Spinner';
 import ErrorButton from '../ErrorButton'
+import ErrorBoundry from '../ErrorBoundry'
 import './ItemDetails.css'
 
 
@@ -56,22 +57,25 @@ export default class ItemDetails extends Component{
     }
     const {name} = item;
     return (
-      <div className="person-details">
-        <img
-          className="person-details_image"
-          src={image}
-          alt="person-details"
-        />
-        <div className="person-details_info">
-          <h3>{name}</h3> 
-            {
-              React.Children.map(this.props.children, (child) => {
-                return React.cloneElement(child, {item})
-              })
-            }
-          <ErrorButton />
+      <ErrorBoundry>
+        <div className="person-details">
+          <img
+            className="person-details_image"
+            src={image}
+            alt="person-details"
+          />
+          <div className="person-details_info">
+            <h3>{name}</h3> 
+              {
+                React.Children.map(this.props.children, (child) => {
+                  return React.cloneElement(child, {item})
+                })
+              }
+            <ErrorButton />
+          </div>
         </div>
-      </div>
+      </ErrorBoundry>
+      
     )
   }
 }
